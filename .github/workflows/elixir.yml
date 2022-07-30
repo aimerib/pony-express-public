@@ -23,10 +23,10 @@ jobs:
           --health-retries 5
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-elixir@v1.2.0
+      - uses: erlef/setup-beam@v1
         with:
-          elixir-version: "1.10.3" # Define the elixir version [required]
-          otp-version: "22.3" # Define the OTP version [required]
+          elixir-version: "1.10.4" # Define the elixir version [required]
+          otp-version: "23.1" # Define the OTP version [required]
       - name: Restore dependencies cache
         uses: actions/cache@v2
         with:
@@ -37,21 +37,21 @@ jobs:
         run: mix deps.get
       - name: Run Tests
         run: mix test
-  deploy:
-    needs: test
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: main
-          fetch-depth: 0
-      - uses: mhanberg/gigalixir-action@v0.1.0
-        with:
-          GIGALIXIR_USERNAME: ${{ secrets.GIGALIXIR_USERNAME }}
-          GIGALIXIR_PASSWORD: ${{ secrets.GIGALIXIR_PASSWORD }}
-          GIGALIXIR_APP: alternative-chef
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+  # deploy:
+  #   needs: test
+  #   if: github.ref == 'refs/heads/main'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         ref: main
+  #         fetch-depth: 0
+  #     - uses: mhanberg/gigalixir-action@v0.1.0
+  #       with:
+  #         GIGALIXIR_USERNAME: ${{ secrets.GIGALIXIR_USERNAME }}
+  #         GIGALIXIR_PASSWORD: ${{ secrets.GIGALIXIR_PASSWORD }}
+  #         GIGALIXIR_APP: alternative-chef
+  #         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
   # publish:
   #   runs-on: ubuntu-latest
   #   if: github.ref == 'refs/heads/main'
