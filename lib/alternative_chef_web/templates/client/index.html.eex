@@ -1,0 +1,35 @@
+<div class="client-table">
+  <div class="client-list-header">
+    <h1>Listing Clients</h1>
+    <span><%= link "New Client", to: Routes.client_path(@conn, :new), class: "button" %></span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Phone number</th>
+        <th>Text</th>
+        <th>Last texted</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for client <- @clients do %>
+        <tr>
+          <td><%= client.first_name %></td>
+          <td><%= client.last_name %></td>
+          <%= phone_number_formatter phone_number: client.phone_number %>
+          <td><%= client.text %></td>
+          <td><%= client.last_texted %></td>
+          <td>
+            <span><%= link "Show", to: Routes.client_path(@conn, :show, client), class: "button ac-button" %></span>
+            <span><%= link "Edit", to: Routes.client_path(@conn, :edit, client), class: "button ac-button" %></span>
+            <span><%= link "Delete", to: Routes.client_path(@conn, :delete, client), class: "button ac-button", method: :delete, data: [confirm: "Are you sure?"] %></span>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="home-btn"><%= link "Home", to: Routes.message_path(@conn, :index), class: "button" %></div>
+  <div>

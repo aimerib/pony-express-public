@@ -1,0 +1,28 @@
+<h1 class="client-heading">Settings</h1>
+<div class="user-settings-container">
+  <div style="display: grid;
+    grid-auto-flow: column;
+    align-items: end;
+    justify-items: center;
+    gap: 10px;">
+    <%= form_for @changeset, Routes.user_settings_path(@conn, :make_admin), fn f -> %>
+    <div class="in-row-checkbox">
+      <%= hidden_input f, :email, value: @user.email %>
+      <%= label f, :admin %>
+      <%= checkbox f, :admin, checked: @user.admin %>
+    </div>
+    <div>
+      <%= submit "Update admin status" %>
+    </div>
+  <% end %>
+  <%= form_for @conn, Routes.user_reset_password_path(@conn, :create), [as: :user], fn f -> %>
+  <%= hidden_input f, :email, value: @user.email %>
+  <span style="text-align: center; margin-bottom: 10px;">Send an email with instructions to reset password.</span>
+  <%= submit "Reset Password" %>
+<% end %>
+</div>
+<div class="client-footer" style="grid-auto-flow: row; gap: 10px;">
+  <span><%= link "Back", to: Routes.user_registration_path(@conn, :index), class: "button ac-button" %></span>
+  <div class="home-btn"><%= link "Home", to: Routes.message_path(@conn, :index), class: "button ac-button" %></div>
+</div>
+</div>

@@ -1,0 +1,6 @@
+<h1 class="client-list-header">New Client</h1>
+<%= render "form.html", Map.put(assigns, :action, Routes.client_path(@conn, :create)) %>
+<div class="client-footer">
+  <span><%= link "Back", to: Routes.client_path(@conn, :index), class: "button ac-button" %></span>
+  <div class="home-btn"><%= link "Home", to: Routes.message_path(@conn, :index), class: "button ac-button" %></div>
+</div>

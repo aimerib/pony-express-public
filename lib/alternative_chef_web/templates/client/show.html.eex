@@ -1,0 +1,30 @@
+<div class="show-client">
+  <h1 class="client-heading">Show Client</h1>
+  <div class="client-info">
+    <div class="client-list-item">
+      <strong>First name:</strong>
+      <p><%= @client.first_name %></p>
+    </div>
+    <div class="client-list-item">
+      <strong>Last name:</strong>
+      <p><%= @client.last_name %></p>
+    </div>
+    <div class="client-list-item">
+      <strong>Phone number:</strong>
+      <p><%= @phone_number %></p>
+    </div>
+    <div class="client-list-item">
+      <strong>Text:</strong>
+      <p><%= @client.text %></p>
+    </div>
+    <div class="client-list-item">
+      <strong>Last texted:</strong>
+      <p style="font-size: 1.4rem;"><%= @client.last_texted %></p>
+    </div>
+  </div>
+  <span style="justify-self: center;"><%= link "Edit", to: Routes.client_path(@conn, :edit, @client), class: "button ac-button" %></span>
+  <div class="client-footer">
+    <span><%= link "Back", to: Routes.client_path(@conn, :index), class: "button ac-button" %></span>
+    <div class="home-btn"><%= link "Home", to: Routes.message_path(@conn, :index), class: "button ac-button" %></div>
+  </div >
+</div>

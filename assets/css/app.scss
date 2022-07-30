@@ -1,0 +1,273 @@
+/* This file is for your main application css. */
+@import "./phoenix.css";
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+/* Alerts and form errors */
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.alert p {
+  margin-bottom: 0;
+}
+.alert:empty {
+  display: none;
+}
+.invalid-feedback {
+  color: #a94442;
+  display: block;
+  margin: -1rem 0 2rem;
+}
+
+.message-field {
+  background-color: white;
+}
+.show-client {
+  display: grid;
+
+  .ac-button {
+    padding: 0px 6rem;
+  }
+}
+
+.client-table > .home-btn {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.client-table > .home-btn > .button {
+  padding: 0px 10em;
+  max-width: 45ch;
+}
+.user-table > .home-btn {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.user-table > .home-btn > .button {
+  padding: 0px 10em;
+  max-width: 45ch;
+}
+
+.ac-link {
+  white-space: initial;
+  color: #323232;
+  text-decoration: none;
+  backface-visibility: hidden;
+  padding: 0.1em 0;
+}
+.ac-link:active,
+.ac-link:hover {
+  background-repeat: repeat-x;
+  background-image: linear-gradient(
+    to right,
+    currentColor 100%,
+    currentColor 0
+  );
+  background-size: 1px 1px;
+  background-position: 0 calc(100% - 0.1em);
+}
+.client-info {
+  justify-self: center;
+  max-width: 45ch;
+  width: 100%;
+  margin: 20px 0px;
+  display: grid;
+}
+.client-list-item {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr;
+  :first-child {
+    justify-items: end;
+  }
+  :last-child {
+    justify-self: center;
+  }
+
+  p {
+    margin-bottom: unset;
+  }
+}
+.navigation-menu {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 25% 0px 25%;
+}
+main.container {
+  padding-bottom: 100px;
+}
+.in-row-checkbox {
+  display: flex;
+  margin-bottom: 10px;
+}
+.in-row-checkbox > input[type="checkbox"] {
+  margin: 7px;
+}
+.client-table {
+  max-width: 85ch;
+  padding-bottom: 100px;
+}
+.client-list-item > * {
+  font-size: 1em;
+}
+
+@media screen and (max-width: 1080px) {
+  .navigation-menu {
+    margin: initial;
+  }
+}
+table {
+  border-collapse: collapse;
+}
+
+th {
+  background: #323232;
+  color: white;
+  font-weight: bold;
+}
+td,
+th {
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+td:last-child {
+  padding: 6px;
+}
+.client-list-header {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.client-heading {
+  margin: 20px auto;
+}
+
+.client-footer {
+  display: grid;
+  grid-auto-flow: column;
+  max-width: 45ch;
+  justify-self: center;
+
+  .ac-button {
+    padding: 0px 5rem;
+    margin: 0px 10px;
+  }
+}
+
+@media only screen and (max-width: 1080px),
+  (min-device-width: 768px) and (max-device-width: 1080px) {
+  .client-list-header {
+    align-content: center;
+
+    h1 {
+      margin-bottom: 0px;
+      font-size: 2.6rem;
+      line-height: 1.6em;
+    }
+    .button {
+      margin-bottom: 0px;
+    }
+  }
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    display: grid;
+    grid-auto-flow: column;
+  }
+  td:last-child {
+    border-bottom: none;
+  }
+
+  td:before {
+    white-space: nowrap;
+  }
+  .user-table {
+    td:nth-of-type(1):before {
+      content: "Email";
+    }
+    td:nth-of-type(2):before {
+      content: "Admin";
+    }
+  }
+  .client-table {
+    td:nth-of-type(1):before {
+      content: "First name";
+    }
+    td:nth-of-type(2):before {
+      content: "Last name";
+    }
+    td:nth-of-type(3):before {
+      content: "Phone number";
+    }
+    td:nth-of-type(4):before {
+      content: "Text";
+    }
+    td:nth-of-type(5):before {
+      content: "Last texted";
+    }
+  }
+}
+
+input {
+  font-style: "Poppins";
+  font-size: 18px;
+  color: #323232;
+}
+.user-settings-btn {
+  display: grid;
+  justify-self: center;
+  width: 100%;
+  padding: 0 5em;
+  max-width: 45ch;
+}
+.user-settings-container {
+  justify-self: center;
+  width: 100%;
+  max-width: 45ch;
+  display: grid;
+  form {
+    display: grid;
+    justify-items: center;
+  }
+}

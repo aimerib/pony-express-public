@@ -1,0 +1,7 @@
+<%= form_for @conn, Routes.message_path(@conn, :send), [as: :message_data], fn f -> %>
+<%= label f, :message %>
+<%= textarea f, :message, class: "message-field" %>
+<div>
+  <%= submit "Send message" %>
+</div>
+<% end %>

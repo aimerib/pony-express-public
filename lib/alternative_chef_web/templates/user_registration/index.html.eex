@@ -1,0 +1,28 @@
+<div class="user-table">
+  <div class="client-list-header">
+    <h1>Listing Users</h1>
+    <span><%= link "New User", to: Routes.user_registration_path(@conn, :new), class: "button" %></span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Admin</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for user <- @users do %>
+        <tr>
+          <td><%= user.email %></td>
+          <td><%= user.admin %></td>
+          <td>
+            <span><%= link "Edit", to: Routes.user_settings_path(@conn, :edit, user.id), class: "button ac-button" %></span>
+            <span><%= link "Delete", to: Routes.user_registration_path(@conn, :delete, user), class: "button ac-button", method: :delete, data: [confirm: "Are you sure?"] %></span>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="home-btn"><%= link "Home", to: Routes.message_path(@conn, :index), class: "button" %></div>
+  <div>

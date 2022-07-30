@@ -1,0 +1,8 @@
+  <%= if @current_user do %>
+  <div><%= link "Clients", to: Routes.client_path(@conn, :index), class: "ac-link" %> </div>
+  <div><%= link "Settings", to: Routes.user_settings_path(@conn, :edit, @current_user.id), class: "ac-link" %> </div>
+  <%= if @current_user.admin do %>
+    <div><%= link "Users", to: Routes.user_registration_path(@conn, :index), class: "ac-link" %> </div>
+  <% end %>
+  <div><%= link "Log out", to: Routes.user_session_path(@conn, :delete), method: :delete, class: "ac-link" %> </div>
+<% end %>
